@@ -50,6 +50,12 @@
       color: var(--primary);
     }
 
+    /* ---------- Title ---------- */
+    h1 {
+      margin: 2rem 0 1rem 0;
+      text-align: center;
+    }
+
     /* ---------- Grid ---------- */
     .grid {
       display: grid;
@@ -77,8 +83,8 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    .card h2 {
-      margin-top: 0;
+    .card h3 {
+      margin-top: 0.8rem;
       margin-bottom: 0.5rem;
     }
 
@@ -87,31 +93,11 @@
       color: var(--text-light);
     }
 
-    /* ---------- About Me Card ---------- */
-    .card.about img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
+    .card img {
+      width: 100%;
+      height: 160px;
       object-fit: cover;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .card.about:hover img {
-      transform: scale(1.08);
-    }
-
-    .card.about .extra {
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: opacity 0.4s ease, max-height 0.6s ease;
-    }
-
-    .card.about:hover .extra {
-      opacity: 1;
-      max-height: 250px;
-      margin-top: 1rem;
+      border-radius: 0.8rem;
     }
 
     /* ---------- Custom Backgrounds ---------- */
@@ -142,40 +128,45 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Cards -->
+  <!-- Title -->
+  <h1>My Projects</h1>
+
+  <!-- Bento Grid -->
   <div class="grid">
-    <!-- About Me -->
-    <div class="card about">
-      <img src="https://placehold.co/100x100" alt="My Photo">
-      <h2>About Me</h2>
-      <p>Mechanical Engineer passionate about CAD, prototyping, and building things.</p>
-      <div class="extra">
-        <p>I specialize in fabrication, design, and rapid prototyping.  
-        Outside work, I enjoy tinkering and solving real-world engineering problems.</p>
-        <p><a href="https://github.com/nandulamayukh" target="_blank">GitHub →</a></p>
+    <!-- Project 1 -->
+    <div class="card">
+      <img src="images/project1.jpg" alt="Project 1">
+      <h3>Problem Solving Robots</h3>
+      <div class="project-content">
+        <p>A tool to calculate the estimated cost of 3D printing based on uploaded models.</p>
       </div>
     </div>
 
-    <!-- Projects -->
+    <!-- Project 2 -->
     <div class="card">
-      <h2>🛠 Projects</h2>
-      <p>3D printing, automation, and design projects showcased here.</p>
+      <img src="images/project2.jpg" alt="Project 2">
+      <h3>SAE: Autonomous Drone Development Challenge</h3>
+      <div class="project-content">
+        <p>A showcase of CAD models I’ve designed, including assemblies and rapid prototypes.</p>
+      </div>
     </div>
 
-    <!-- Portfolio -->
-    <a href="portfolio.html" class="card">
-      <h2>📂 Portfolio</h2>
-      <p>View case studies and detailed design breakdowns.</p>
-    </a>
-
-    <!-- Contact -->
+    <!-- Project 3 -->
     <div class="card">
-      <h2>📞 Contact Me</h2>
-      <p>
-        <a href="mailto:nandulamayukh@gmail.com" target="_blank">📧 Email</a><br>
-        <a href="https://github.com/nandulamayukh" target="_blank">💻 GitHub</a><br>
-        <a href="https://in.linkedin.com/in/mayukh-nandula-2a4bab236" target="_blank">🔗 LinkedIn</a>
-      </p>
+      <img src="images/project3.jpg" alt="Project 3">
+      <h3>Kritsnam Tech: Sensor Testing Module</h3>
+      <div class="project-content">
+        <p>Physical prototypes, machine parts, and fabricated components for engineering projects.</p>
+      </div>
+    </div>
+
+    <!-- Project 4 -->
+    <div class="card">
+      <img src="images/project4.jpg" alt="Project 4">
+      <h3>Harvested Robotics: Weeder Fixturing</h3>
+      <div class="project-content">
+        <p>Projects involving robotics automation, control systems, and motion planning.</p>
+      </div>
     </div>
   </div>
 </body>
