@@ -7,24 +7,64 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
       margin: 0;
-      background: #f4f4f4;
+      padding: 2rem;
+      background: #f9fafb;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
-    h1 {
-      color: #333;
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      max-width: 1000px;
+      width: 100%;
     }
-    p {
-      color: #666;
+
+    .card {
+      background: white;
+      border-radius: 1rem;
+      padding: 1.5rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #1f2937;
+    }
+
+    .card p {
+      color: #4b5563;
     }
   </style>
 </head>
 <body>
-  <h1>Welcome to My Portfolio</h1>
-  <p>This is the beginning of something cool 🚀</p>
+  <div class="grid">
+    <div class="card">
+      <h2>👋 About Me</h2>
+      <p>Mechanical Engineer with experience in CAD, prototyping, and fabrication.</p>
+    </div>
+    <div class="card">
+      <h2>🛠 Projects</h2>
+      <p>3D printing, automation, and design projects showcased here.</p>
+    </div>
+    <div class="card">
+      <h2>📂 Portfolio</h2>
+      <p>View case studies and detailed design breakdowns.</p>
+    </div>
+    <div class="card">
+      <h2>📬 Contact</h2>
+      <p>Reach me via email: yourname@domain.com</p>
+    </div>
+  </div>
 </body>
 </html>
