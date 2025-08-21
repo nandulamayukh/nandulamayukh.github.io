@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nandula Mayukh - About Me</title>
+  <style>
+    :root {
+      --bg: #ECF0F1;
+      --text-dark: #2C3E50;
+      --text-light: #7F8C8D;
+      --primary: #34495E;
+    }
+
+    body {
+      font-family: system-ui, sans-serif;
+      margin: 0;
+      background: var(--bg);
+      color: var(--text-dark);
+      min-height: 100vh;
+    }
+
+    nav {
+      width: 100%;
+      background: white;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+      padding: 1rem 0;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: 600;
+      color: var(--text-dark);
+      transition: color 0.3s ease;
+    }
+    nav a:hover { color: var(--primary); }
+
+    .profile {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    .profile img {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .profile h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+    .profile p {
+      max-width: 750px;
+      margin: 0.8rem auto;
+      line-height: 1.6;
+      color: var(--text-dark);
+    }
+
+    /* Timeline */
+    .timeline-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 3rem auto;
+      padding-left: 2rem;
+    }
+    .content-card {
+      background: white;
+      padding: 1.2rem 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 2px 9px rgba(0,0,0,0.1);
+      width: 100%;
+      text-align: left;
+    }
+    .content-card h3 { margin: 0 0 0.5rem 0; color: var(--primary); }
+    .content-card p { margin: 0.3rem 0; color: var(--text-light); line-height: 1.6; }
+
+    /* Skills */
+    .skills-section {
+      max-width: 900px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    .skills-section h2 { margin-bottom: 1rem; }
+    .skills-cards {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    .skill-card {
+      background: #fff;
+      padding: 1rem 1.3rem;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      min-width: 160px;
+      flex: 1 1 200px;
+    }
+    .skill-card span { font-weight: 600; color: var(--primary); }
+    .skill-card .level { color: var(--text-light); font-size: 0.9rem; }
+    
+    /* Contact */
+    .contact {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin: 2rem 0;
+      flex-wrap: wrap;
+    }
+    .contact a {
+      text-decoration: none;
+      color: var(--text-dark);
+      font-weight: 600;
+      transition: color 0.3s ease;
+    }
+    .contact a:hover { color: var(--primary); }
+    .portfolio-link {
+    margin-top: 1.5rem;
+  }
+
+  .portfolio-link a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    background: #34495E;
+    color: white;
+    font-weight: 600;
+    padding: 0.8rem 1.4rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+    transition: background 0.3s ease, transform 0.2s ease;
+  }
+
+  .portfolio-link a:hover {
+    background: #2C3E50;
+    transform: translateY(-2px);
+  }
+
+  .portfolio-link .icon {
+    font-size: 1.2rem;
+  }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about-me.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+
+  <div class="profile">
+    <img src="images/me.jpg" alt="My Photo">
+    <h1>Mayukh Nandula</h1>
+    <p>I am a Mechanical Engineer with hands-on experience in end-to-end product development. Skilled in CAD, prototyping, analysis, and cross-functional collaboration, I have worked across industries from packaging and robotics to aerospace research. I am passionate about efficient, tool-agnostic solutions and thrive at the intersection of design and execution.</p>
+      <div class="portfolio-link">
+    <a href="portfolio.html">
+      <span class="icon">📂</span> View My Portfolio
+    </a>
+  </div>
+</div>
+  </div>
+
+  <div class="timeline-container">
+    <div class="content-card">
+      <h3>Industrial Design Engineer – Product Armor</h3>
+      <p>Jul 2024 – Present</p>
+      <p>Led product drawings, CAD, rapid prototyping, SOPs, and cross-functional applications in packaging product design.</p>
+    </div>
+    <div class="content-card">
+      <h3>Mechanical Consultant – Harvested Robotics</h3>
+      <p>Dec 2023 – Apr 2024</p>
+      <p>Designed fixturing parts for flagship product, earning co-inventor recognition in submitted IP.</p>
+    </div>
+    <div class="content-card">
+      <h3>Mechanical Design Intern – Kritsnam Tech</h3>
+      <p>Jul 2023 – Aug 2023</p>
+      <p>Developed in-house testing tools and improved iterations of flagship product.</p>
+    </div>
+    <div class="content-card">
+      <h3>Research Intern – Dhruva Space</h3>
+      <p>Jun 2021 – Sep 2021</p>
+      <p>Worked on sensor selection and integration for CubeSats.</p>
+    </div>
+    <div class="content-card">
+      <h3>B.Tech, Mechanical Engineering – Mahindra University</h3>
+      <p>2020 – 2024</p>
+      <p>Completed projects in aero design, robotics, propulsion analysis, and manufacturing.</p>
+    </div>
+  </div>
+
+  <div class="skills-section">
+    <h2>Skills</h2>
+    <div class="skills-cards">
+      <!-- Advanced -->
+      <div class="skill-card"><span>CAD & Drafting</span><div class="level">Advanced</div></div>
+      <div class="skill-card"><span>3D Printing / Laser Cutting</span><div class="level">Advanced</div></div>
+      <div class="skill-card"><span>Excel & SOP Creation</span><div class="level">Advanced</div></div>
+
+      <!-- Intermediate -->
+      <div class="skill-card"><span>Product Design</span><div class="level">Intermediate</div></div>
+      <div class="skill-card"><span>Reverse Engineering</span><div class="level">Intermediate</div></div>
+      <div class="skill-card"><span>Finite Element Analysis</span><div class="level">Intermediate</div></div>
+      <div class="skill-card"><span>Computational Fluid Dynamics</span><div class="level">Intermediate</div></div>
+
+      <!-- Beginner -->
+      <div class="skill-card"><span>Welding</span><div class="level">Beginner</div></div>
+      <div class="skill-card"><span>Graphic Design</span><div class="level">Beginner</div></div>
+      <div class="skill-card"><span>Microsoft Power Apps</span><div class="level">Beginner</div></div>
+    </div>
+  </div>
+
+  <div class="contact">
+    <a href="mailto:nandula.mayukh@gmail.com" target="_blank">📧 Email</a>
+    <a href="https://github.com/nandulamayukh" target="_blank">💻 GitHub</a>
+    <a href="https://in.linkedin.com/in/mayukh-nandula-2a4bab236" target="_blank">🔗 LinkedIn</a>
+  </div>
+</body>
+</html>

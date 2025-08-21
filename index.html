@@ -3,30 +3,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nandula Mayukh - Portfolio</title>
+  <title>Nandula Mayukh - Home</title>
   <style>
     :root {
-      --bg: #f9fafb;
-      --text-dark: #111827;
-      --text-light: #4b5563;
-      --primary: #2563eb;
-      --card1: #e0f2fe;
-      --card2: #fef9c3;
-      --card3: #fce7f3;
-      --card4: #dcfce7;
+      --bg: #ECF0F1;
+      --text-dark: #000; /* force black */
+      --primary: #34495E;
+      --gradient: linear-gradient(90deg, #6a11cb, #2575fc);
     }
 
     body {
-      font-family: system-ui, sans-serif;
       margin: 0;
+      font-family: system-ui, sans-serif;
       background: var(--bg);
       color: var(--text-dark);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      line-height: 1.6;
     }
 
-    /* ---------- Navbar ---------- */
     nav {
       width: 100%;
       background: white;
@@ -46,95 +39,127 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: var(--primary);
-    }
+    nav a:hover { color: var(--primary); }
 
-    /* ---------- Grid ---------- */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
-      width: 100%;
-      padding: 2rem;
-    }
-
-    /* ---------- Card ---------- */
-    .card {
-      background: white;
-      border-radius: 1.2rem;
-      padding: 1.5rem;
+    /* Hero Section */
+    .hero {
+      background: url("images/hero-banner.jpg") center/cover no-repeat;
       text-align: center;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      text-decoration: none;
-      color: inherit;
+      padding: 6rem 2rem 3rem;
     }
 
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-    }
-
-    .card h2 {
-      margin-top: 0;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 800;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin: 0;
-      color: var(--text-light);
     }
 
-    /* ---------- About Me Card ---------- */
-    .card.about img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-bottom: 1rem;
-      transition: transform 0.3s ease;
-    }
-
-    .card.about:hover img {
-      transform: scale(1.08);
-    }
-
-    .card.about .extra {
-      opacity: 0;
-      max-height: 0;
-      overflow: hidden;
-      transition: opacity 0.4s ease, max-height 0.6s ease;
-    }
-
-    .card.about:hover .extra {
-      opacity: 1;
-      max-height: 250px;
+    .hero p {
+      font-size: 1.2rem;
       margin-top: 1rem;
+      color: black; /* all text black */
+      max-width: 700px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
-    /* ---------- Custom Backgrounds ---------- */
-    .grid .card:nth-child(1) { background: var(--card1); }
-    .grid .card:nth-child(2) { background: var(--card2); }
-    .grid .card:nth-child(3) { background: var(--card3); }
-    .grid .card:nth-child(4) { background: var(--card4); }
+    .hero a {
+      display: inline-block;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      text-decoration: underline;
+      color: black;
+    }
 
-    /* ---------- Responsive ---------- */
-    @media (max-width: 600px) {
-      nav a {
-        display: inline-block;
-        margin: 8px;
-      }
-      .grid {
-        padding: 1rem;
-        gap: 1rem;
-      }
+    /* Carousel */
+    .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 700px;
+      margin: 2rem auto;
+      overflow: hidden;
+      text-align: center;
+    }
+
+    .carousel-track {
+      display: flex;
+      transition: transform 0.5s ease;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .carousel-slide {
+      min-width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .carousel-slide img {
+      max-width: 100%;
+      max-height: 400px;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+
+    .carousel-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0,0,0,0.5);
+      color: white;
+      border: none;
+      padding: 0.6rem 1rem;
+      cursor: pointer;
+      font-size: 1.2rem;
+      border-radius: 50%;
+    }
+
+    .carousel-btn.prev { left: 10px; }
+    .carousel-btn.next { right: 10px; }
+
+    /* Portfolio Button */
+    .portfolio-link {
+      display: block;
+      margin: 3rem auto;
+      text-align: center;
+    }
+
+    .portfolio-link a {
+      display: inline-block;
+      background: var(--gradient);
+      color: white;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: transform 0.2s ease;
+    }
+
+    .portfolio-link a:hover { transform: scale(1.08); }
+
+    /* Contact */
+    .contact {
+      text-align: center;
+      padding: 2rem;
+      background: #fff;
+      border-top: 1px solid #ddd;
+    }
+
+    .contact a {
+      margin: 0 10px;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
@@ -142,41 +167,67 @@
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Cards -->
-  <div class="grid">
-    <!-- About Me -->
-    <div class="card about">
-      <img src="https://placehold.co/100x100" alt="My Photo">
-      <h2>About Me</h2>
-      <p>Mechanical Engineer passionate about CAD, prototyping, and building things.</p>
-      <div class="extra">
-        <p>I specialize in fabrication, design, and rapid prototyping.  
-        Outside work, I enjoy tinkering and solving real-world engineering problems.</p>
-        <p><a href="https://github.com/nandulamayukh" target="_blank">GitHub →</a></p>
-      </div>
-    </div>
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Hi, I'm Mayukh</h1>
+    <p>Mechanical Engineer passionate about design, prototyping, and building innovative solutions that merge creativity with technical expertise.</p>
+    <a href="about-me.html">Learn more about me →</a>
+  </section>
 
-    <!-- Projects -->
-    <div class="card">
-      <h2>🛠 Projects</h2>
-      <p>3D printing, automation, and design projects showcased here.</p>
-    </div>
-
-    <!-- Portfolio -->
-    <a href="portfolio.html" class="card">
-      <h2>📂 Portfolio</h2>
-      <p>View case studies and detailed design breakdowns.</p>
-    </a>
-
-    <!-- Contact -->
-    <div class="card">
-      <h2>📞 Contact Me</h2>
-      <p>
-        <a href="mailto:nandulamayukh@gmail.com" target="_blank">📧 Email</a><br>
-        <a href="https://github.com/nandulamayukh" target="_blank">💻 GitHub</a><br>
-        <a href="https://in.linkedin.com/in/mayukh-nandula-2a4bab236" target="_blank">🔗 LinkedIn</a>
-      </p>
-    </div>
+  <!-- Carousel -->
+  <div class="carousel">
+    <button class="carousel-btn prev">❮</button>
+    <ul class="carousel-track">
+      <li class="carousel-slide"><img src="images/me-1.jpg" alt="Me 1"></li>
+      <li class="carousel-slide"><img src="images/me-2.jpg" alt="Me 2"></li>
+      <li class="carousel-slide"><img src="images/me-3.jpg" alt="Me 3"></li>
+      <li class="carousel-slide"><img src="images/me-4.jpg" alt="Me 4"></li>
+      <li class="carousel-slide"><img src="images/me-5.jpg" alt="Me 5"></li>
+      <li class="carousel-slide"><img src="images/me-6.jpg" alt="Me 6"></li>
+    </ul>
+    <button class="carousel-btn next">❯</button>
   </div>
+
+  <!-- Portfolio CTA -->
+  <div class="portfolio-link">
+    <a href="portfolio.html">🚀 View My Portfolio</a>
+  </div>
+
+  <!-- Contact -->
+  <footer class="contact">
+    <p>
+      <a href="mailto:nandulamayukh@gmail.com">📧 Email</a> |
+      <a href="https://github.com/nandulamayukh" target="_blank">💻 GitHub</a> |
+      <a href="https://linkedin.com/in/mayukh-nandula-2a4bab236" target="_blank">🔗 LinkedIn</a>
+    </p>
+  </footer>
+
+  <script>
+    const track = document.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = document.querySelector('.next');
+    const prevButton = document.querySelector('.prev');
+    let currentSlide = 0;
+
+    function updateSlide(position) {
+      track.style.transform = `translateX(-${100 * position}%)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide(currentSlide);
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlide(currentSlide);
+    });
+
+    // Auto cycle
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide(currentSlide);
+    }, 5000);
+  </script>
 </body>
 </html>

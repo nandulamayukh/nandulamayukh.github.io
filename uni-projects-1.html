@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects Showcase - Nandula Mayukh</title>
+
+  <!-- Font Awesome Free CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+  :root {
+    --bg: #ECF0F1;
+    --text-dark: #000;  /* Force black text */
+    --text-light: #000; /* Black text everywhere */
+    --primary: #34495E;
+    --uni-bg: #D6EAF8;     
+    --pro-bg: #FADBD8;     
+    --uni-text: #154360;
+    --pro-text: #78281F;
+  }
+
+  body {
+    margin: 0;
+    font-family: system-ui, sans-serif;
+    background: var(--bg);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: background 0.8s ease-in-out;
+  }
+
+  nav {
+    width: 100%;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  nav a {
+    margin: 0 20px;
+    text-decoration: none;
+    font-weight: 600;
+    color: var(--text-dark);
+    transition: color 0.3s ease;
+  }
+
+  nav a:hover {
+    color: var(--primary);
+  }
+
+  /* Project Wrapper */
+  .project-container {
+    position: relative;
+    max-width: 1000px;
+    width: 100%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    overflow: hidden;
+  }
+
+  .project-type {
+    text-align: center;
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .hero {
+  display: block;
+  margin: 0 auto;                 /* center */
+  max-width: 100%;                /* don’t overflow screen */
+  max-height: 20vh;               /* don’t take more than 90% of screen height */
+  object-fit: contain;            /* scale inside box, preserve aspect ratio */
+}
+
+  .project h2 {
+    margin: 0.5rem 0;
+    color: black;
+  }
+
+  .description {
+    color: black;
+    line-height: 1.6;
+    margin: 1rem 0;
+  }
+
+  .skills {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .skill {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    background: var(--bg);
+    padding: 0.8rem 1rem;
+    border-radius: 0.8rem;
+    font-weight: 600;
+    color: black;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  }
+
+  .skill i {
+    font-size: 1.2rem;
+    color: var(--primary);
+  }
+
+  /* Arrows for switching projects (keep if needed) */
+  .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 0.5rem 0.8rem;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 20;
+  }
+/* Arrows for switching projects */
+.arrow {
+  position: fixed;   /* Stick to viewport instead of inside card */
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  font-size: 2.5rem;
+  padding: 0.8rem 1.2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  z-index: 2000;   /* Stay above everything */
+}
+
+.arrow.left { left: 30px; }   /* Push outside left */
+.arrow.right { right: 30px; } /* Push outside right */
+
+.arrow:hover {
+  background: rgba(0,0,0,0.8);
+}
+
+
+  /* Carousel */
+  .carousel {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    margin: 2rem auto;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .carousel-track-container {
+    overflow: hidden;
+    width: 100%;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+
+  .carousel-slide img {
+    max-width: 100%;   /* Standard size */
+    height: 30vh;     /* Keep resolution ratio */
+    border-radius: 12px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+
+  /* Remove carousel buttons */
+  .carousel-btn { display: none; }
+
+  /* Logo in top-left */
+  .logo {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: contain;
+    background: white;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+</style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="portfolio.html">Portfolio</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+  </nav>
+    <button class="arrow left" onclick="prevProject()">&#10094;</button>
+    <button class="arrow right" onclick="nextProject()">&#10095;</button>
+  <div class="project-container">
+
+
+    <div id="project-display"></div>
+  </div>
+
+  <script>
+  const projects = [
+    {
+      type: "University",
+      title: "SAE DDC - Drone Development Challenge",
+      img: "images/ddc-hero.jpg",
+      bg:"images/ddc-bg.jpg",
+      logo: "images/uni-logo.jpg",
+      desc: "This project involved the end-to-end design, fabrication, and testing of a drone for the SAE International Drone Development Challenge. I was responsible for leading the team through concept ideation, CAD modeling, material selection, and fabrication. The design process involved applying aerodynamic principles, structural analysis, and weight optimization to achieve flight stability and endurance. As team captain, I coordinated across subsystems including electronics, propulsion, and fabrication teams, ensuring deadlines were met and designs were integrated efficiently. The challenge tested leadership, adaptability, and technical expertise. Under my leadership, the team successfully ranked 21st nationally, a significant achievement in a highly competitive event.",
+      skills: [
+        {icon: "fa-plane", text: "Aero Design"},
+        {icon: "fa-tools", text: "Fabrication"},
+        {icon: "fa-user-tie", text: "Leadership"},
+        {icon: "fa-people-arrows", text: "Coordination"}
+      ],
+      gallery: [
+        "images/ddc-c-1.jpg",
+        "images/ddc-c-2.jpg",
+        "images/ddc-c-3.jpg",
+        "images/ddc-c-4.jpg"
+      ]
+    },
+    {
+      type: "University",
+      title: "Robocon 2022",
+      img: "images/robo-hero.jpg",
+      bg:"images/robo-bg.jpg",
+      logo: "images/uni-logo.jpg",
+      desc: "In this international robotics competition, I worked as mechanical lead on the team responsible for building a competition-ready robot for the given theme. The project emphasized mechanical design of drive systems, actuators, and manipulators, ensuring precision and robustness for competition tasks. I played a key role in rapid prototyping, using available resources to fabricate and iterate mechanical systems under time constraints. Collaboration with the electronics and software sub-teams was essential to ensure full integration of hardware and control systems. The project taught me critical lessons about team collaboration, system integration, and resource management. Our robot advanced to the semi-finals, validating the design and teamwork.",
+      skills: [
+        {icon: "fa-cogs", text: "Mechanical Design"},
+        {icon: "fa-bolt", text: "Rapid Prototyping"},
+        {icon: "fa-users", text: "Collaboration"},
+        {icon: "fa-microchip", text: "Low-level Electronics"}
+      ],
+      gallery: [
+        "images/robo-c-1.jpg",
+        "images/robo-c-2.jpg",
+      ]
+    },
+    {
+      type: "University",
+      title: "SCRAMJet Engine Analysis",
+      img: "images/scram-hero.jpg",
+      bg:"images/scram-bg.jpg",
+      logo: "images/uni-logo.jpg",
+      desc: "This academic research project focused on analyzing supersonic airflow through a scramjet engine using computational fluid dynamics (CFD). The objective was to understand how shock waves, heat transfer, and fuel-air mixing influence performance in hypersonic flight regimes. My work involved setting up CFD simulations, generating meshes for complex geometries, and analyzing results to validate flow characteristics at supersonic Mach numbers. I combined data analysis with scientific reasoning to interpret results and present meaningful insights. This project sharpened my ability to think scientifically, interpret high-fidelity simulations, and present technical findings clearly.",
+      skills: [
+        {icon: "fa-chart-area", text: "Data Analysis"},
+{icon: "fa-wind", text: "Supersonic Flow CFD"},
+{icon: "fa-flask", text: "Scientific Thinking"},
+{icon: "fa-project-diagram", text: "Simulation"}
+
+      ],
+      gallery: [
+        "images/scram-c-1.jpg",
+        "images/scram-c-2.jpg",
+        "images/scram-c-3.jpg",
+        "images/scram-c-4.jpg"
+      ]
+    },
+    {
+      type: "Professional",
+      title: "Harvested Robotics",
+      img: "images/har-hero.jpg",
+      bg:"harv-bg.jpg",
+      logo: "images/harvested-logo.svg",
+      desc: "This project involved the design and fabrication of a custom mechanical fixture for the Rakshak autonomous farming solution. The fixture needed to be durable, easily mountable on tractors, and capable of withstanding rugged field conditions. My role included mechanical design for robustness, stress testing, and rapid iterations to refine performance. I worked in close feedback loops with the testing team to quickly integrate improvements. This experience reinforced the value of quick development cycles and practical engineering in real-world environments, where reliability is non-negotiable.",
+      skills: [
+        {icon: "fa-tools", text: "Mechanical Fixtures"},
+{icon: "fa-tractor", text: "Tractor Integration"},
+{icon: "fa-sync-alt", text: "Quick Iteration"},
+{icon: "fa-vial", text: "Testing"}
+
+      ],
+      gallery: [
+        "images/har-c-1.jpg",
+        "images/har-c-2.jpg",
+        "images/har-c-3.jpg",
+        "images/har-c-4.jpg"
+      ]
+    },{
+      type: "Professional",
+      title: "Kritsnam Technologies",
+      img: "images/kritsnam-hero.jpg",
+      bg:"images/kritsnam-bg.jpg",
+      logo: "images/kritsnam-logo.jpg",
+      desc: "At Kritsnam Tech, I contributed to the design of precision mechanical components for sensor alignment systems used in water monitoring solutions. The project demanded extremely tight tolerances to ensure accuracy in sensor readings. I collaborated closely with the electronics and software teams to integrate mechanical adjustments with sensor calibration workflows. This required strong inter-departmental communication and iterative testing to ensure robust performance in real-world conditions. The project deepened my understanding of cross-functional collaboration and the importance of mechanical precision in interdisciplinary engineering systems.",
+      skills: [
+        {icon: "fa-cogs", text: "Mechanical Design"},
+{icon: "fa-users-cog", text: "Inter-Department Collaboration"},
+{icon: "fa-drafting-compass", text: "Mechanism Design"}
+
+      ],
+      gallery: [
+        "images/kritsnam-c-1.jpg",
+        "images/kritsnam-c-2.jpg",
+        "images/kritsnam-c-3.jpg",
+      ]
+    },{
+      type: "Professional",
+      title: "180 cc 45 mm Neck HDPE container design",
+      img: "images/armor-logo.png",
+      bg:"pappl-bg.jpg",
+      logo: "images/armor-logo.png",
+      desc: "As part of Product Armor, I contributed to the design and manufacturing of a 180cc industrial mold for bottle production. The project required detailed CAD modeling, tolerance analysis, and manufacturability considerations to ensure mass production consistency. I worked with production engineers to align mold design with manufacturing capabilities, ensuring efficient cycle times and product quality. This project highlighted the importance of mechanical design in large-scale production and gave me hands-on experience in industrial tooling and mold design.",
+      skills: [
+        {icon: "fa-box-open", text: "Product Design"},
+{icon: "fa-cogs", text: "Mechanical Design"},
+{icon: "fa-industry", text: "Manufacturing Coordination"},
+{icon: "fa-ruler", text: "Tolerance & Standards"}
+
+      ],
+      gallery: [
+        "images/copyright.png",
+        "images/copyright.png",
+        "images/copyright.png",
+        "images/copyright.png"
+      ]
+    },{
+      type: "Professional",
+      title: "45mm Child Resistant Closure Design",
+      img: "images/armor-logo.png",
+      bg:"pappl-bg.jpg",
+      logo: "images/armor-logo.png",
+      desc: "This project focused on the design of a safety closure mechanism for pharmaceutical packaging, specifically a 45 mm child-resistant cap. The closure needed to be user-friendly for adults yet comply with child-safety standards. I designed and iterated multiple prototypes, conducting user testing and failure analysis to refine the locking mechanism. The project combined mechanical design, safety compliance, and practical prototyping. It was a valuable lesson in balancing safety, manufacturability, and user experience.",
+      skills: [
+        {icon: "fa-box", text: "Product Design"},
+{icon: "fa-cogs", text: "Mechanical Design"},
+{icon: "fa-vials", text: "Prototyping & Testing"},
+{icon: "fa-tasks", text: "Project Management"}
+
+      ],
+      gallery: [
+        "images/copyright.png",
+        "images/copyright.png",
+        "images/copyright.png",
+        "images/copyright.png"
+      ]
+    }
+
+  ];
+
+  let currentIndex = 0;
+
+  function renderProject(index) {
+    const p = projects[index];
+  const container = document.getElementById("project-display");
+
+  // set whole body background dynamically
+  document.body.style.background = `url(${p.bg}) center/cover no-repeat fixed`;
+
+    const typeStyle = p.type === "University"
+      ? `background: var(--uni-bg); color: var(--uni-text);`
+      : `background: var(--pro-bg); color: var(--pro-text);`;
+
+    const carouselSlides = p.gallery.map(img => `
+      <li class="carousel-slide"><img src="${img}" alt="${p.title}"></li>
+    `).join("");
+
+    container.innerHTML = `
+      <div class="project">
+        <img src="${p.logo}" alt="logo" class="logo">
+        <div class="project-type" style="${typeStyle}">${p.type} Project</div>
+        <img src="${p.img}" class="hero" alt="${p.title}">
+        <h2>${p.title}</h2>
+        <p class="description">${p.desc}</p>
+        
+        <div class="skills">
+          ${p.skills.map(s => `
+            <div class="skill"><i class="fas ${s.icon}"></i>${s.text}</div>
+          `).join("")}
+        </div>
+
+        <div class="carousel">
+          <button class="carousel-btn prev">❮</button>
+          <div class="carousel-track-container">
+            <ul class="carousel-track">${carouselSlides}</ul>
+          </div>
+          <button class="carousel-btn next">❯</button>
+        </div>
+      </div>
+    `;
+
+    const track = container.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const nextButton = container.querySelector('.next');
+    const prevButton = container.querySelector('.prev');
+    let currentSlide = 0;
+
+    function updateSlide(position) {
+      track.style.transform = `translateX(-${100 * position}%)`;
+    }
+
+    nextButton.addEventListener('click', () => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide(currentSlide);
+    });
+
+    prevButton.addEventListener('click', () => {
+      currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+      updateSlide(currentSlide);
+    });
+
+    // Auto cycle every 4 seconds
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      updateSlide(currentSlide);
+    }, 4000);
+  }
+
+  function nextProject() {
+    currentIndex = (currentIndex + 1) % projects.length;
+    renderProject(currentIndex);
+  }
+
+  function prevProject() {
+    currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+    renderProject(currentIndex);
+  }
+
+  renderProject(currentIndex);
+  const projectMap = {
+    ddc: 0,          // Drone Development Challenge
+    robocon: 1,      // Robocon 2022
+    scramjet: 2,     // SCRAMJet Engine Analysis
+    harvested: 3,    // Harvested Robotics
+    kritsnam: 4,     // Kritsnam Tech
+    armor180: 5,     // 180cc Mold
+    armor45mm: 6     // 45mm Closure
+  };
+
+  // get ?project= param
+  const params = new URLSearchParams(window.location.search);
+  const projKey = params.get("project");
+
+  if (projKey && projectMap[projKey] !== undefined) {
+    currentIndex = projectMap[projKey];
+  } else {
+    currentIndex = 0; // fallback if param missing/invalid
+  }
+
+  renderProject(currentIndex);
+  </script>
+</body>
+</html>

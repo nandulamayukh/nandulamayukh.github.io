@@ -6,14 +6,10 @@
   <title>Nandula Mayukh - Portfolio</title>
   <style>
     :root {
-      --bg: #f9fafb;
-      --text-dark: #111827;
-      --text-light: #4b5563;
-      --primary: #2563eb;
-      --card1: #e0f2fe;
-      --card2: #fef9c3;
-      --card3: #fce7f3;
-      --card4: #dcfce7;
+      --bg: #ECF0F1;
+      --text-dark: #2C3E50;
+      --text-light: #7F8C8D;
+      --primary: #34495E;
     }
 
     body {
@@ -26,7 +22,6 @@
       align-items: center;
     }
 
-    /* ---------- Navbar ---------- */
     nav {
       width: 100%;
       background: white;
@@ -46,27 +41,43 @@
       transition: color 0.3s ease;
     }
 
-    nav a:hover {
-      color: var(--primary);
-    }
+    nav a:hover { color: var(--primary); }
 
-    /* ---------- Title ---------- */
     h1 {
       margin: 2rem 0 1rem 0;
       text-align: center;
     }
 
-    /* ---------- Grid ---------- */
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      max-width: 1000px;
+    .groups-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      max-width: 1200px;
       width: 100%;
       padding: 2rem;
     }
 
-    /* ---------- Card ---------- */
+    .group-box {
+      background: #ffffff;
+      border-radius: 1.5rem;
+      padding: 1rem;
+      flex: 1 1 300px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .group-box h2 { margin-bottom: 1rem; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      width: 100%;
+    }
+
     .card {
       background: white;
       border-radius: 1.2rem;
@@ -76,6 +87,7 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       text-decoration: none;
       color: inherit;
+      display: block;
     }
 
     .card:hover {
@@ -83,16 +95,8 @@
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
     }
 
-    .card h3 {
-      margin-top: 0.8rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .card p {
-      margin: 0;
-      color: var(--text-light);
-    }
-
+    .card h3 { margin-top: 0.8rem; margin-bottom: 0.5rem; }
+    .card p { margin: 0; color: var(--text-light); }
     .card img {
       width: 100%;
       height: 160px;
@@ -100,72 +104,68 @@
       border-radius: 0.8rem;
     }
 
-    /* ---------- Custom Backgrounds ---------- */
-    .grid .card:nth-child(1) { background: var(--card1); }
-    .grid .card:nth-child(2) { background: var(--card2); }
-    .grid .card:nth-child(3) { background: var(--card3); }
-    .grid .card:nth-child(4) { background: var(--card4); }
-
-    /* ---------- Responsive ---------- */
-    @media (max-width: 600px) {
-      nav a {
-        display: inline-block;
-        margin: 8px;
-      }
-      .grid {
-        padding: 1rem;
-        gap: 1rem;
-      }
+    @media (max-width: 900px) {
+      .groups-container { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-  <!-- Navbar -->
   <nav>
     <a href="index.html">Home</a>
     <a href="portfolio.html">Portfolio</a>
-    <a href="about.html">About</a>
+    <a href="about-me.html">About</a>
     <a href="contact.html">Contact</a>
   </nav>
 
-  <!-- Title -->
-  <h1>My Projects</h1>
+  <h1>Projects Overview</h1>
 
-  <!-- Bento Grid -->
-  <div class="grid">
-    <!-- Project 1 -->
-    <div class="card">
-      <img src="images/project1.jpg" alt="Project 1">
-      <h3>Problem Solving Robots</h3>
-      <div class="project-content">
-        <p>A tool to calculate the estimated cost of 3D printing based on uploaded models.</p>
+  <div class="groups-container">
+    <!-- University Projects -->
+    <div class="group-box">
+      <h2>University Projects</h2>
+      <div class="grid">
+        <a href="uni-projects-1.html?project=ddc" class="card">
+          <img src="images/ddc-hero.jpg" alt="Drone Development Challenge">
+          <h3>Drone Development Challenge (SAE)</h3>
+          <p>Led my team to design, build, and test a drone — ranked 21st nationally.</p>
+        </a>
+        <a href="uni-projects-1.html?project=robocon" class="card">
+          <img src="images/robo-hero.jpg" alt="Robocon 2022">
+          <h3>Robocon 2022</h3>
+          <p>Mechanical lead for robotics competition, reaching the semi-finals.</p>
+        </a>
+        <a href="uni-projects-1.html?project=scramjet" class="card">
+          <img src="images/scram-hero.jpg" alt="SCRAMJet Analysis">
+          <h3>SCRAMJet Engine Analysis</h3>
+          <p>Performed CFD simulations on supersonic airflow for scramjet engines.</p>
+        </a>
       </div>
     </div>
 
-    <!-- Project 2 -->
-    <div class="card">
-      <img src="images/project2.jpg" alt="Project 2">
-      <h3>SAE: Autonomous Drone Development Challenge</h3>
-      <div class="project-content">
-        <p>A showcase of CAD models I’ve designed, including assemblies and rapid prototypes.</p>
-      </div>
-    </div>
-
-    <!-- Project 3 -->
-    <div class="card">
-      <img src="images/project3.jpg" alt="Project 3">
-      <h3>Kritsnam Tech: Sensor Testing Module</h3>
-      <div class="project-content">
-        <p>Physical prototypes, machine parts, and fabricated components for engineering projects.</p>
-      </div>
-    </div>
-
-    <!-- Project 4 -->
-    <div class="card">
-      <img src="images/project4.jpg" alt="Project 4">
-      <h3>Harvested Robotics: Weeder Fixturing</h3>
-      <div class="project-content">
-        <p>Projects involving robotics automation, control systems, and motion planning.</p>
+    <!-- Professional Projects -->
+    <div class="group-box">
+      <h2>Professional Projects</h2>
+      <div class="grid">
+        <a href="uni-projects-1.html?project=harvested" class="card">
+          <img src="images/har-hero.jpg" alt="Harvested Robotics">
+          <h3>Harvested Robotics</h3>
+          <p>Designed rugged fixtures for Rakshak autonomous farming solutions.</p>
+        </a>
+        <a href="uni-projects-1.html?project=kritsnam" class="card">
+          <img src="images/kritsnam-hero.jpg" alt="Kritsnam Tech">
+          <h3>Kritsnam Technologies</h3>
+          <p>Sensor alignment systems with high mechanical precision.</p>
+        </a>
+        <a href="uni-projects-1.html?project=armor180" class="card">
+          <img src="images/armor-logo.png" alt="180cc Mold">
+          <h3>180cc Mold Design</h3>
+          <p>Industrial bottle mold designed with precision tolerances.</p>
+        </a>
+        <a href="uni-projects-1.html?project=armor45mm" class="card">
+          <img src="images/armor-logo.png" alt="45mm Closure">
+          <h3>45mm Child Resistant Closure</h3>
+          <p>Designed and tested a safety-compliant packaging closure.</p>
+        </a>
       </div>
     </div>
   </div>
